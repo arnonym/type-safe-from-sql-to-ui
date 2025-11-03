@@ -1,0 +1,24 @@
+@if (todos().length === 0) {
+  <div class="empty-state">
+    <p>Keine Todos vorhanden</p>
+  </div>
+} @else {
+  <ul class="todo-list">
+    @for (todo of todos(); track todo.id) {
+      <li class="todo-item" [class.completed]="todo.isComplete">
+        <div class="todo-content">
+          <input
+            type="checkbox"
+            [checked]="todo.isComplete"
+            class="todo-checkbox"
+            (change)="markTodo(todo.id, !todo.isComplete)"
+          />
+          <span class="todo-text">{{ todo.description }}</span>
+          <button class="delete-button" (click)="deleteTodo(todo.id)" title="Löschen">
+            ✕
+          </button>
+        </div>
+      </li>
+    }
+  </ul>
+}

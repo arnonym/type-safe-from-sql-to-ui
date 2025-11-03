@@ -1,0 +1,21 @@
+<div class="add-todo-container">
+  <form (ngSubmit)="addTodo()" class="add-todo-form">
+    <div class="input-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="newTodoDescription"
+        name="todoDescription"
+        placeholder="Neues Todo hinzufügen..."
+        class="todo-input"
+        required
+      />
+      <button
+        type="submit"
+        class="add-button"
+        [disabled]="!newTodoDescription.trim()"
+      >
+        <span>➕ Hinzufügen</span>
+      </button>
+    </div>
+  </form>
+</div>
